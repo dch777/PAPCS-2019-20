@@ -24,6 +24,12 @@ public class WordScramble_Chanana {
 		System.out.println(twoInARow("Aa", 'a')); 	 		  //should return false
 		//7
 		System.out.println(capitalizeVowels("hello")); 	 		  //should return hEllO
+		//8
+		System.out.println(longestWord("Hello how are you")); 		  //should return Hello
+		//9
+		System.out.println(containsPrefix("abXYabc", 1)); 		  //should return true
+		System.out.println(containsPrefix("abXYabc", 2)); 		  //should return true
+		System.out.println(containsPrefix("abXYabc", 3)); 		  //should return false
 	}
 
 	public static boolean isLetterA(char letter) {
@@ -87,5 +93,20 @@ public class WordScramble_Chanana {
 			}
 		}
 		return end;
+	}
+
+	public static String longestWord(String s) {
+		String[] words = s.split(" ");
+		String longest = words[0];
+		for (int i = 0; i < words.length; i++) {
+			if (words[i].length() > longest.length()) {
+				longest = words[i];
+			}
+		}
+		return longest;
+	}
+
+	public static boolean containsPrefix(String s, int n) {
+		return s.substring(n).contains(s.substring(0, n));
 	}
 }
