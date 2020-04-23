@@ -30,6 +30,8 @@ public class WordScramble_Chanana {
 		System.out.println(containsPrefix("abXYabc", 1)); 		  //should return true
 		System.out.println(containsPrefix("abXYabc", 2)); 		  //should return true
 		System.out.println(containsPrefix("abXYabc", 3)); 		  //should return false
+		//app
+		wordScramble("Bygones!");
 	}
 
 	public static boolean isLetterA(char letter) {
@@ -107,6 +109,25 @@ public class WordScramble_Chanana {
 	}
 
 	public static boolean containsPrefix(String s, int n) {
-		return s.substring(n).contains(s.substring(0, n));
+		return s.substring(n).indexOf(s.substring(0, n)) != -1;
+	}
+
+	static Random rand = new Random();
+	public static void wordScramble(String line) {
+		String[] words = line.split(" ");
+		String inner = "";
+		for (int i = 0; i < words.length; i++) {
+			System.out.print(words[i].charAt(0));
+			inner = "";
+			for (int j = 1; j < words[i].length() - 1; j++) {
+				if (rand.nextBoolean()) {
+					inner = inner + words[i].charAt(j);
+				} else {
+					inner = words[i].charAt(j) + inner;
+				}
+			}
+			System.out.print(inner + words[i].charAt(words[i].length() - 1) + " ");
+		}
+		System.out.println();
 	}
 }
