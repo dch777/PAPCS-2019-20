@@ -5,6 +5,7 @@ import java.util.*;
 
 public class PhoneNumber_Chanana {
 	public static void main(String[] args) {
+		Scanner console = new Scanner(System.in);
 		//1
 		question();
 		//2
@@ -12,6 +13,11 @@ public class PhoneNumber_Chanana {
 		System.out.println(daysInMonth(4, 2015)); 	//Should print 30
 		System.out.println(daysInMonth(2, 2015)); 	//Should print 28
 		System.out.println(daysInMonth(2, 2016)); 	//Should print 29
+		//app
+		System.out.print("Enter phone String >> ");
+		String phone = console.nextLine();
+		System.out.print("Actual Number >> ");
+		System.out.println(phoneNumber(phone));
 	}
 
 	public static void question() {
@@ -53,5 +59,51 @@ public class PhoneNumber_Chanana {
 				System.out.println("Invalid month");
 				return -1;
 		}
+	}
+
+	public static String phoneNumber(String phone) {
+		char[] original = phone.toCharArray();
+		String newPhone = "";
+		String code = "";
+		for (int i = 0; i < original.length; i++) {
+			switch (original[i]) {
+				case 'A': case 'B': case 'C':
+				case 'a': case 'b': case 'c':
+					newPhone += "2";
+					break;
+				case 'D': case 'E': case 'F':
+				case 'd': case 'e': case 'f':
+					newPhone += "3";
+					break;
+				case 'G': case 'H': case 'I':
+				case 'g': case 'h': case 'i':
+					newPhone += "4";
+					break;
+				case 'J': case 'K': case 'L':
+				case 'j': case 'k': case 'l':
+					newPhone += "5";
+					break;
+				case 'M': case 'N': case 'O':
+				case 'm': case 'n': case 'o':
+					newPhone += "6";
+					break;
+				case 'P': case 'Q': case 'R': case 'S':
+				case 'p': case 'q': case 'r': case 's':
+					newPhone += "7";
+					break;
+				case 'T': case 'U': case 'V':
+				case 't': case 'u': case 'v':
+					newPhone += "8";
+					break;
+				case 'W': case 'X': case 'Y': case 'Z':
+				case 'w': case 'x': case 'y': case 'z':
+					newPhone += "9";
+					break;
+				default:
+					code += original[i];
+					break;
+			}
+		}
+		return code + newPhone.substring(0,3) + "-" + newPhone.substring(3);
 	}
 }
