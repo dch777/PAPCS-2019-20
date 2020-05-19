@@ -8,7 +8,7 @@ public class ROT_47 {
 		//i
 		System.out.println(encrypt("something")); //Should return "D@>6E9:?8"
 		//ii
-		System.out.println(encrypt("D@>6E9:?8")); //Should return "something"
+		System.out.println(decrypt("D@>6E9:?8")); //Should return "something"
 	}
 
 	public static String encrypt(String s) {

@@ -8,7 +8,7 @@ public class ROT_13 {
 		//i
 		System.out.println(encrypt("hello")); //Should return "uryyb"
 		//i
-		System.out.println(encrypt("hello")); //Should return "uryyb"
+		System.out.println(decrypt("hello")); //Should return "uryyb"
 	}
 
 	public static String encrypt(String s) {
